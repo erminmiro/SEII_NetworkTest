@@ -22,9 +22,21 @@ public class MainActivity extends AppCompatActivity {
         Button checkTimeButton = findViewById(R.id.button);
 
         checkTimeButton.setOnClickListener(v -> {
-            String input = inputField.getText().toString();
-            responseField.setText(input);
-            new Thread(new GetResponse(input)).start();
+            try {
+
+                String input = inputField.getText().toString();
+
+                GetResponse responseClass = new GetResponse(input);
+                Thread responseThread = new Thread(responseClass);
+
+                responseThread.start();
+
+                responseThread.join();
+
+                responseField.setText(responseClass.getResponse());
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         });
 
 
