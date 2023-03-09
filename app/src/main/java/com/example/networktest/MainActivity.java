@@ -20,6 +20,16 @@ public class MainActivity extends AppCompatActivity {
         responseField = findViewById(R.id.responseField);
 
         Button checkTimeButton = findViewById(R.id.button);
+        Button checkSumButton = findViewById(R.id.checkSumButton);
+
+        checkSumButton.setOnClickListener(v -> {
+            String input = inputField.getText().toString();
+            QuerSum querSum = new QuerSum(input);
+            querSum.calculateQuerSum();
+            int result = querSum.getSum();
+            responseField.setText("The alternating checksum of your Marticulation ID is : "+result);
+        });
+
 
         checkTimeButton.setOnClickListener(v -> {
 

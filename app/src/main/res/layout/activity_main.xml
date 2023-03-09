@@ -8,16 +8,28 @@
 
 
     <Button
+        android:id="@+id/checkSumButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calculate alternating checksum"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.837" />
+
+    <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Check how long you have studied"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.67"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.746" />
+        app:layout_constraintVertical_bias="0.641" />
 
     <EditText
         android:id="@+id/editTextNumber"
@@ -43,20 +55,21 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.583"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.293" />
+        app:layout_constraintVertical_bias="0.187" />
 
     <TextView
         android:id="@+id/responseField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAlignment="center"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextNumber"
-        app:layout_constraintVertical_bias="0.338" />
+        app:layout_constraintVertical_bias="0.471" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
