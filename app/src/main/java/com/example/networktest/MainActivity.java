@@ -24,10 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         checkSumButton.setOnClickListener(v -> {
             String input = inputField.getText().toString();
-            QuerSum querSum = new QuerSum(input);
-            querSum.calculateQuerSum();
-            int result = querSum.getSum();
-            responseField.setText("The alternating checksum of your Marticulation ID is : "+result);
+            responseField.setText(getQuerSum(input));
         });
 
 
@@ -36,6 +33,17 @@ public class MainActivity extends AppCompatActivity {
             String input = inputField.getText().toString();
             responseField.setText(startThread(input));
         });
+    }
+
+
+    public String getQuerSum(String input){
+
+        QuerSum querSum = new QuerSum(input);
+        querSum.calculateQuerSum();
+
+        int result = querSum.getSum();
+
+        return "The alternating checksum of your Marticulation ID is : "+result;
     }
 
 
