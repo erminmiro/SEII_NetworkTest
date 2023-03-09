@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         checkTimeButton.setOnClickListener(v -> {
             String input = inputField.getText().toString();
             responseField.setText(input);
+            new Thread(new GetResponse(input)).start();
         });
 
 
