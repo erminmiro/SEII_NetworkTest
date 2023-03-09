@@ -11,7 +11,15 @@ import static org.junit.Assert.*;
  */
 public class ExampleUnitTest {
     @Test
-    public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
+    public void checkSumDigitCheckTest() {
+        QuerSum querSum = new QuerSum("11834110");
+        assertEquals(8,querSum.getDigit(2));
+    }
+
+    @Test
+    public void checkSumCalculateTest() {
+        QuerSum querSum = new QuerSum("11834110");
+        querSum.calculateQuerSum();
+        assertEquals(-7,querSum.getSum());
     }
 }
