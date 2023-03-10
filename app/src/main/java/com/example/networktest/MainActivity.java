@@ -29,34 +29,20 @@ public class MainActivity extends AppCompatActivity {
         checkSumButton.setEnabled(false);
         checkTimeButton.setEnabled(false);
 
-        inputField.addTextChangedListener(new TextWatcher() {
-
+        inputField.addTextChangedListener(new NoInputWatcher() {
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-                if(s.toString().trim().length()==0){
-                    checkSumButton.setEnabled(false);
-                    checkTimeButton.setEnabled(false);
-                } else {
-                    checkSumButton.setEnabled(true);
-                    checkTimeButton.setEnabled(true);
-                }
+            public void onEmptyField() {
+                checkSumButton.setEnabled(false);
+                checkTimeButton.setEnabled(false);
             }
 
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count,
-                                          int after) {
-                // TODO Auto-generated method stub
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                // TODO Auto-generated method stub
+            public void onFilledField() {
+                checkSumButton.setEnabled(true);
+                checkTimeButton.setEnabled(true);
 
             }
         });
-
 
 
         checkSumButton.setOnClickListener(v -> {
