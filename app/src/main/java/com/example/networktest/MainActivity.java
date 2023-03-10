@@ -1,6 +1,9 @@
 package com.example.networktest;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -9,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText inputField;
     private TextView responseField;
+    private TextWatcher textWatcher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +26,39 @@ public class MainActivity extends AppCompatActivity {
         Button checkTimeButton = findViewById(R.id.button);
         Button checkSumButton = findViewById(R.id.checkSumButton);
 
+        checkSumButton.setEnabled(false);
+        checkTimeButton.setEnabled(false);
+
+        inputField.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                if(s.toString().trim().length()==0){
+                    checkSumButton.setEnabled(false);
+                    checkTimeButton.setEnabled(false);
+                } else {
+                    checkSumButton.setEnabled(true);
+                    checkTimeButton.setEnabled(true);
+                }
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after) {
+                // TODO Auto-generated method stub
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+
+
+
         checkSumButton.setOnClickListener(v -> {
             String input = inputField.getText().toString();
             responseField.setText(getQuerSum(input));
@@ -34,6 +71,8 @@ public class MainActivity extends AppCompatActivity {
             responseField.setText(startThread(input));
         });
     }
+
+
 
 
     public String getQuerSum(String input){
